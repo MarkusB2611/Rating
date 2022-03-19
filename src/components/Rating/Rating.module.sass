@@ -1,0 +1,29 @@
+@use '../../assets/Colors'
+
+h1
+  color: Colors.$white
+  font-size: 28px
+  font-weight: 700
+
+p
+  color: Colors.$lightGrey
+
+button
+  background-color: Colors.$orange
+  width: 100%
+  height: 45px
+  border: none
+  border-radius: 22.5px
+  letter-spacing: 2px
+  font-weight: 700
+  color: Colors.$white
+  text-transform: uppercase
+
+  &:hover
+    background-color: Colors.$white
+    color: Colors.$orange
+    cursor: pointer
+
+.SelectRating
+  display: flex
+  justify-content: space-between
