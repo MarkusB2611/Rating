@@ -1,28 +1,29 @@
-import React from "react"
+import React, {useState} from "react"
 import styles from './Rating.module.sass'
 import star from '../../assets/icon-star.svg'
 import Card from "../../UI/Card/Card";
 import Bubble from "../../UI/Bubble/Bubble";
+import RatingForm from "./RatingDialog/RatingForm/RatingForm";
+import RatingDialog from "./RatingDialog/RatingDialog";
+import RatingSummary from "./RatingSummary/RatingSummary";
 
 const Rating = () => {
-    const ratings = [1, 2, 3, 4, 5]
-    const ratingBubbles = ratings.map(
-        el => <Bubble key={el}>{el}</Bubble>
-    )
+    const [selectedRating, setSelectedRating] = useState(null)
+    const [formSubmitted, setFormSubmitted] = useState(false)
+
+    const handleRatingChange = (value) => {
+        setSelectedRating(value)
+    }
+
+    const submitHandler = (event) => {
+        event.preventDefault()
+        setFormSubmitted(true)
+    }
 
     return (
         <Card>
-            <Bubble>
-                <img src={star} alt=""/>
-            </Bubble>
-            <div>
-                <h1>How did we do?</h1>
-                <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
-            </div>
-            <div className={styles.SelectRating}>
-                {ratingBubbles}
-            </div>
-            <button>Submit</button>
+            {!formSubmitted && <RatingDialog onSubmit={submitHandler} onChange={handleRatingChange} selected={selectedRating}/>}
+            {formSubmitted && <RatingSummary selected={selectedRating}/>}
         </Card>
     )
 }

@@ -1,0 +1,34 @@
+@use '../../../../assets/Colors'
+
+form
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+
+.SelectRating
+  display: flex
+  justify-content: space-between
+  margin-bottom: 20px
+
+button
+  background-color: Colors.$orange
+  width: 100%
+  height: 45px
+  border: none
+  border-radius: 22.5px
+  letter-spacing: 2px
+  font-weight: 700
+  color: Colors.$white
+  text-transform: uppercase
+
+  &:hover
+    background-color: Colors.$white
+    color: Colors.$orange
+    cursor: pointer
+
+  &[disabled]
+    background-color: Colors.$mediumGray
+
+    &:hover
+      color: Colors.$white
+      cursor: not-allowed
