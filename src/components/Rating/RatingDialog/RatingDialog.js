@@ -1,9 +1,12 @@
-import React from "react"
+import React, {useState} from "react"
 import Bubble from "../../../UI/Bubble/Bubble";
 import star from "../../../assets/icon-star.svg";
 import RatingForm from "./RatingForm/RatingForm";
 
+
+
 const RatingDialog = ({onSubmit, onChange, selected}) => {
+
     return (
         <>
             <Bubble>
